@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plan>
+  <id>4</id>
+  <lang></lang>
+  <title>Banner Header</title>
+  <form>sequential</form>
+  <width>50</width>
+  <height>50</height>
+  <banners>
+    <banners_item>
+      <id>4</id>
+      <title>banner</title>
+      <clid>1</clid>
+      <file_name>banner_dhd.jpg</file_name>
+      <imageforswf></imageforswf>
+      <file_ext>jpg</file_ext>
+      <file_mime>image/jpeg</file_mime>
+      <file_width>1060</file_width>
+      <file_height>90</file_height>
+      <file_alt></file_alt>
+      <file_click></file_click>
+      <target>_blank</target>
+      <bannerhtml></bannerhtml>
+      <publ_time>1772010178</publ_time>
+      <exp_time>0</exp_time>
+    </banners_item>
+  </banners>
+</plan>
