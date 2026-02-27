@@ -4,17 +4,15 @@ if (!defined('NV_MAINFILE')) {
     exit('Stop!!!');
 }
 
-if (!nv_function_exists('nv_news_block_bdt_hero')) {
+if (!nv_function_exists('nv_news_block_global_bdt_magazine')) {
 
-    // Form cấu hình trong Admin
-    function nv_block_config_news_bdt_hero($module, $data_block, $lang_block)
+    function nv_block_config_news_global_bdt_magazine($module, $data_block, $lang_block)
     {
-        $numrow = isset($data_block['numrow']) ? $data_block['numrow'] : 8;
+        $numrow = isset($data_block['numrow']) ? $data_block['numrow'] : 5;
         $length_title = isset($data_block['length_title']) ? $data_block['length_title'] : 80;
-        $length_hometext = isset($data_block['length_hometext']) ? $data_block['length_hometext'] : 200;
 
         $html = '<div class="form-group">';
-        $html .= '  <label class="control-label col-sm-6">Số bài hiển thị (Nên để 8):</label>';
+        $html .= '  <label class="control-label col-sm-6">Số bài hiển thị (BẮT BUỘC ĐỂ 5):</label>';
         $html .= '  <div class="col-sm-18"><input type="text" class="form-control" name="config_numrow" value="' . $numrow . '"></div>';
         $html .= '</div>';
 
@@ -23,50 +21,36 @@ if (!nv_function_exists('nv_news_block_bdt_hero')) {
         $html .= '  <div class="col-sm-18"><input type="text" class="form-control" name="config_length_title" value="' . $length_title . '"></div>';
         $html .= '</div>';
 
-        $html .= '<div class="form-group">';
-        $html .= '  <label class="control-label col-sm-6">Độ dài đoạn giới thiệu:</label>';
-        $html .= '  <div class="col-sm-18"><input type="text" class="form-control" name="config_length_hometext" value="' . $length_hometext . '"></div>';
-        $html .= '</div>';
-
         return $html;
     }
 
-    // Lưu cấu hình Admin
-    function nv_block_config_news_bdt_hero_submit($module, $lang_block)
+    function nv_block_config_news_global_bdt_magazine_submit($module, $lang_block)
     {
         global $nv_Request;
         $return = [];
         $return['error'] = [];
         $return['config'] = [];
-
-        // Đưa tất cả biến vào mảng config
-        $return['config']['numrow'] = $nv_Request->get_int('config_numrow', 'post', 8);
+        $return['config']['numrow'] = $nv_Request->get_int('config_numrow', 'post', 5);
         $return['config']['length_title'] = $nv_Request->get_int('config_length_title', 'post', 80);
-        $return['config']['length_hometext'] = $nv_Request->get_int('config_length_hometext', 'post', 200);
-
         return $return;
     }
 
-    // Hàm xuất dữ liệu ra giao diện
-    function nv_news_block_bdt_hero($block_config)
+    function nv_news_block_global_bdt_magazine($block_config)
     {
         global $site_mods, $global_config, $module_file, $db;
         $module = $block_config['module'];
 
         $block_theme = 'default';
-        if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['site_theme'] . '/modules/' . $module_file . '/block_bdt_hero.tpl')) {
+        if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['site_theme'] . '/modules/' . $module_file . '/block_bdt_magazine.tpl')) {
             $block_theme = $global_config['site_theme'];
         }
 
-        $xtpl = new XTemplate('block_bdt_hero.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/modules/' . $module_file);
+        $xtpl = new XTemplate('block_bdt_magazine.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/modules/' . $module_file);
 
-        // Gọi dữ liệu cấu hình
-        $numrow = isset($block_config['numrow']) ? $block_config['numrow'] : 8;
+        $numrow = isset($block_config['numrow']) ? $block_config['numrow'] : 5;
         $length_title = isset($block_config['length_title']) ? $block_config['length_title'] : 80;
-        $length_hometext = isset($block_config['length_hometext']) ? $block_config['length_hometext'] : 200;
 
-        // ĐÃ SỬA: Viết thẳng câu SQL nối chuỗi để ép biến $numrow vào LIMIT
-        $sql = 'SELECT id, catid, title, alias, hometext, homeimgfile, homeimgthumb, publtime '
+        $sql = 'SELECT id, catid, title, alias, homeimgfile, homeimgthumb, publtime '
             . 'FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_rows '
             . 'WHERE status= 1 AND inhome=1 '
             . 'ORDER BY publtime DESC '
@@ -87,9 +71,8 @@ if (!nv_function_exists('nv_news_block_bdt_hero')) {
             }
 
             $row['titleclean'] = nv_clean60($row['title'], $length_title);
-            $row['hometext'] = nv_clean60(strip_tags($row['hometext']), $length_hometext);
 
-            // Tách tin 1 ra làm tin chính, các tin còn lại vào danh sách
+            // Bài số 1 ra khối bên trái, bài 2-3-4-5 ra khối bên phải
             if ($i == 1) {
                 $xtpl->assign('main', $row);
             } else {
@@ -105,5 +88,5 @@ if (!nv_function_exists('nv_news_block_bdt_hero')) {
 }
 
 if (defined('NV_SYSTEM')) {
-    $content = nv_news_block_bdt_hero($block_config);
+    $content = nv_news_block_global_bdt_magazine($block_config);
 }

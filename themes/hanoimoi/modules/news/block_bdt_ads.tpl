@@ -1,8 +1,7 @@
 <!-- BEGIN: main -->
 <div class="bdt-ad-block margin-bottom-lg">
-    <!-- Đã gán cứng link đích và link ảnh để ưu tiên làm giao diện -->
-    <a href="https://mof.gov.vn" target="_blank" title="Quảng cáo" class="bdt-ad-link">
-        <img src="/nukeviet/uploads/logo-bo-tai-chinh_1.jpg" alt="Quảng cáo" class="img-responsive bdt-ad-image" style="width: 100%; margin-bottom: 15px; border: 1px solid #ddd; padding: 2px;" />
+    <a href="{AD_LINK}" target="_blank" title="{AD_ALT}" class="bdt-ad-link">
+        <img src="{IMAGE_URL}" alt="{AD_ALT}" class="img-responsive bdt-ad-image" />
     </a>
 </div>
 <!-- END: main -->

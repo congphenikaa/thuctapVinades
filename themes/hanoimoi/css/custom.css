@@ -342,3 +342,371 @@
     margin: 0;
     line-height: 1.6;
 }
+
+/* ==========================================================
+   CSS BLOCK BDT MAGAZINE (1 LỚN BÊN TRÁI + 4 NHỎ BÊN PHẢI)
+   ========================================================== */
+.bdt-magazine-block {
+    margin-bottom: 30px;
+}
+
+/* Sử dụng flexbox để các cột có chiều cao bằng nhau */
+.bdt-magazine-row, 
+.bdt-magazine-sub-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ====== BÊN TRÁI: BÀI CHÍNH ====== */
+.magazine-main-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.magazine-main {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+}
+
+.magazine-main-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.magazine-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Lớp phủ đen để nổi bật chữ */
+.magazine-main-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.magazine-main-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    pointer-events: none; /* Xuyên thao tác chuột xuống link */
+}
+
+.magazine-main-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.magazine-main-title a {
+    color: #ffffff;
+    text-decoration: none;
+    pointer-events: auto; /* Bật lại thao tác click cho thẻ a */
+}
+
+.magazine-main-title a:hover {
+    color: #e0e0e0;
+}
+
+/* ====== BÊN PHẢI: CÁC BÀI NHỎ ====== */
+.magazine-item-wrapper {
+    margin-bottom: 20px;
+}
+
+.magazine-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.magazine-item-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.magazine-item-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng zoom ảnh khi di chuột */
+.magazine-item-link:hover .magazine-item-img {
+    transform: scale(1.05);
+}
+
+.magazine-item-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.magazine-item-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.magazine-item-title a:hover {
+    color: #ce0000; /* Thay màu đỏ bằng mã màu chủ đạo của báo bạn */
+}
+
+/* ==========================================================
+   CSS BLOCK BDT HERO (1 TO BÊN TRÁI + DANH SÁCH BÊN PHẢI)
+   ========================================================== */
+.bdt-hero-block {
+    margin-bottom: 30px;
+}
+
+.hero-main {
+    padding-right: 15px;
+}
+
+.hero-main-link {
+    display: block;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.hero-main-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hero-main-link:hover .hero-main-img {
+    transform: scale(1.05);
+}
+
+.hero-main-title {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.hero-main-title a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hero-main-title a:hover {
+    color: #ce0000;
+}
+
+.hero-main-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: justify;
+    color: #555;
+}
+
+.hero-list {
+    padding-left: 15px;
+    border-left: 1px solid #e5e5e5;
+    height: 100%;
+}
+
+.hero-item {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+.hero-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.hero-item-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.hero-item-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hero-item-title a:hover {
+    color: #ce0000;
+}
+
+/* ==========================================================
+   CSS BLOCK BDT GÓC NHÌN (KHỐI NỀN XÁM, TIN ẢNH NẰM DỌC)
+   ========================================================== */
+.bdt-gocnhin-block {
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    padding: 15px;
+}
+
+.gocnhin-main {
+    margin-bottom: 20px;
+}
+
+.gocnhin-main-link {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.gocnhin-main-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/10;
+    transition: transform 0.3s ease;
+}
+
+.gocnhin-main-link:hover .gocnhin-main-img {
+    transform: scale(1.05);
+}
+
+.gocnhin-main-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.gocnhin-main-title a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.gocnhin-main-title a:hover {
+    color: #ce0000;
+}
+
+.gocnhin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.gocnhin-item-link {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.gocnhin-item-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/10;
+    transition: transform 0.3s ease;
+}
+
+.gocnhin-item-link:hover .gocnhin-item-img {
+    transform: scale(1.05);
+}
+
+.gocnhin-item-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.gocnhin-item-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.gocnhin-item-title a:hover {
+    color: #ce0000;
+}
+
+/* ==========================================================
+   CSS BLOCK GROUPS (DANH SÁCH ẢNH DÀN HÀNG NGANG)
+   ========================================================== */
+.block-horizontal-layout {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 0;
+    margin: 0;
+}
+
+.block-horizontal-layout li {
+    flex: 1; 
+    min-width: 180px; 
+    list-style: none; 
+}
+
+.block-horizontal-layout .img-wrapper {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    overflow: hidden;
+    border-radius: 6px; 
+}
+
+.block-horizontal-layout .img-wrapper img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+.block-horizontal-layout .img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.block-horizontal-layout .title-link {
+    font-weight: 600;
+    line-height: 1.4;
+    display: block;
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.block-horizontal-layout .title-link:hover {
+    color: #ce0000;
+}
+
+/* ==========================================================
+   CSS BLOCK ADS (QUẢNG CÁO)
+   ========================================================== */
+.bdt-ad-image {
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 2px;
+}

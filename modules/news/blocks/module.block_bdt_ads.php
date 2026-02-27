@@ -46,9 +46,14 @@ if (!nv_function_exists('nv_block_bdt_ads')) {
     {
         global $nv_Request;
         $return = [];
-        $return['image_url'] = $nv_Request->get_string('config_image_url', 'post', '');
-        $return['ad_link'] = $nv_Request->get_string('config_ad_link', 'post', '');
-        $return['ad_alt'] = $nv_Request->get_string('config_ad_alt', 'post', '');
+        $return['error'] = [];
+        $return['config'] = []; // Thêm mảng config
+
+        // Đưa các biến vào trong mảng config
+        $return['config']['image_url'] = $nv_Request->get_string('config_image_url', 'post', '');
+        $return['config']['ad_link'] = $nv_Request->get_string('config_ad_link', 'post', '');
+        $return['config']['ad_alt'] = $nv_Request->get_string('config_ad_alt', 'post', '');
+
         return $return;
     }
 
